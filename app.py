@@ -1,13 +1,10 @@
 import streamlit as st
-from fastai.vision.all import *
+from fastai.vision.all import PILImage, load_learner
 import pathlib
 import plotly.express as px
 import warnings
 import platform
 
-# Path fix (Windows bilan ishlash uchun)
-# temp = pathlib.PosixPath
-# pathlib.PosixPath = pathlib.WindowsPath
 
 plt = platform.system()
 if plt=='Linux':pathlib.WindowsPath = pathlib.PosixPath
@@ -20,14 +17,14 @@ warnings.filterwarnings("ignore", category=UserWarning, module="fastai.learner")
 st.title("Transport klassifikatsiya qiluvchi model")
 
 # Modelni yuklash
+model = load_learner('./transport_model.pkl')
 
 # Fayl yuklash
-file = st.file_uploader('Rasm yuklash', type='jpg')
+file = st.file_uploader('Rasm yuklash', type=['jpg', 'png'])
 if file:
     st.image(file)
 
     img = PILImage.create(file)
-    model = load_learner('./transport_model.pkl')
 
     # Bashorat qilish
     pred, pred_id, probs = model.predict(img)
