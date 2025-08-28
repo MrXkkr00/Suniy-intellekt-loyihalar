@@ -4,6 +4,7 @@ import pathlib
 import plotly.express as px
 import warnings
 import platform
+from PIL import Image
 
 
 plt = platform.system()
@@ -24,8 +25,8 @@ file = st.file_uploader('Rasm yuklash', type=['jpg', 'png'])
 if file:
     st.image(file)
 
-    img = PILImage.create(file)
-
+    # img = PILImage.create(file)
+    img = Image.open(file)
     # Bashorat qilish
     pred, pred_id, probs = model.predict(img)
 
