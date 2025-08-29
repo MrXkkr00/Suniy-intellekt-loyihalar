@@ -22,8 +22,8 @@ file = st.file_uploader('Rasm yuklash', type=['jpg', 'png'])
 if file:
     st.image(file)
 
-    # img = PILImage.create(file)
-    img = Image.open(file)
+    img = PILImage.create(file)
+    
     # Bashorat qilish
     pred, pred_id, probs = model.predict(img)
 
