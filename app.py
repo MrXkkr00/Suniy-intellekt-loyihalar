@@ -10,9 +10,6 @@ from PIL import Image
 plt = platform.system()
 if plt=='Linux':pathlib.WindowsPath = pathlib.PosixPath
 
-# Ogohlantirishni o‘chirib qo‘yish
-warnings.filterwarnings("ignore", category=UserWarning, module="fastai.learner")
-
 
 
 st.title("Transport klassifikatsiya qiluvchi model")
