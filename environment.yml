@@ -12,3 +12,4 @@ dependencies:
       - plotly==6.3.0
       - numpy==1.26.4
       - fasttransform
+      - cloudpickle~=2.0.0
