@@ -12,13 +12,14 @@ if plt=='Linux':pathlib.WindowsPath = pathlib.PosixPath
 
 
 
-st.title("Transport klassifikatsiya qiluvchi model")
+st.title("O'zbekiston armiyasida ishlatilayotgan qurol turlarini klassifikatsiya qiluvchi model")
+
 
 # Modelni yuklash
-model = load_learner('./transport_model.pkl')
+model = load_learner('./qurol_model.pkl')
 
 # Fayl yuklash
-file = st.file_uploader('Rasm yuklash', type=['jpg', 'png'])
+file = st.file_uploader('Rasm yuklash', type=['jpg','png', 'webp'])
 if file:
     st.image(file)
 
